@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--&lt;!&ndash;settings：控制mybatis全局行为&ndash;&gt;-->
+    <settings>
+        <!--设置mybatis输出日志-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+
+        <!--数据库的下划线字段映射成不带下划线的-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!--设置别名-->
+    <typeAliases>
+        <typeAlias alias="Film" type="cn.lstf666.filmcomment.entity.Film"/>
+        <typeAlias alias="Comments" type="cn.lstf666.filmcomment.entity.Comments"/>
+        <typeAlias alias="User" type="cn.lstf666.filmcomment.entity.User"/>
+    </typeAliases>
+
+    <!-- sql mapper(sql映射文件)的位置-->
+    <!--<mappers>-->
+        <!--&lt;!&ndash;-->
+          <!--name：是包名， 这个包中的所有mapper.xml一次都能加载-->
+        <!--&ndash;&gt;-->
+        <!--<package name="cn.lstf666.filmcomment.mapper.xml"/>-->
+    <!--</mappers>-->
+</configuration>

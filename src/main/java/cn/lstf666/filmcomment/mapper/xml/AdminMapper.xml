@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.lstf666.filmcomment.mapper.AdminMapper">
+    <!--配置查询所有-->
+    <!--<select id="方法名" resultType="全限定类名">-->
+    <!--</select>-->
+
+    <select id="login" resultType="User">
+        select * from user where username = #{username}
+    </select>
+    <delete id="deleteInfo">
+        delete from comments where cid=#{cid}
+    </delete>
+    <select id="checkuid" resultType="User">
+        select * from user where uid = 1
+    </select>
+    <insert id="addInfo">
+        INSERT into film (filmname,type,score,score_people,actor,img,regions,director,intro,date1)
+        values(#{filmname},#{type},#{score},#{scorePeople},#{actor},#{img},#{regions},#{director},#{intro},#{date1})
+    </insert>
+</mapper>

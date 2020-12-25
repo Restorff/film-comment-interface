@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.lstf666.filmcomment.mapper.UserMapper">
+    <insert id="save">
+        insert into user(username,password,avatar,email,phone,gmt_create)
+        values (#{username},#{password},#{avatar},#{email},#{phone},#{gmtCreate})
+    </insert>
+    <!--配置查询所有-->
+    <!--<select id="方法名" resultType="全限定类名">-->
+    <!--</select>-->
+    <select id="findUserByPhone" resultType="Integer">
+        select count(*) from user where phone = #{phone}
+    </select>
+    <select id="login" resultType="User">
+        select * from user where phone = #{phone}
+    </select>
+    <update id="updateFilmScore">
+        UPDATE film
+        SET score = (#{newscore} + score)/(score_people + 1 ),score_people = score_people +1
+        where fid =#{fid}
+    </update>
+    <select id="getFilmById" resultType="Film">
+        select * FROM film where fid = #{fid}
+    </select>
+    <select id="getIdByPhone" resultType="java.lang.Integer">
+        select * from user where phone = #{phone}
+    </select>
+    <select id="getUserByPhone" resultType="User">
+        select * from user where phone = #{phone}
+    </select>
+    <insert id="userCommentOk">
+        insert into comments(uid,fid,stars,main,gmt_create)
+        values (#{uid},#{fid},#{stars},#{main},#{gmtCreate})
+    </insert>
+    <update id="userCommentLove">
+            UPDATE comments
+            SET stars = stars + 1
+            where cid=#{cid}
+    </update>
+    <update id="updateUser">
+        update user set username = #{username},password=#{password},email = #{email},avatar = #{avatar}
+        where phone = #{phone}
+    </update>
+</mapper>
