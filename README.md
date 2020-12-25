@@ -11,3 +11,9 @@
 
 # 测试方式：
 项目跑起来之后，在浏览器输入[http://localhost:8080/swagger-ui.html#/](http://localhost:8080/swagger-ui.html#),即可测试接口数据。
+
+# 管理后台界面地址
+https://github.com/Restorff/filmcomment-front-admin
+
+# 用户前台界面地址
+https://github.com/Restorff/film-comment-user-front
